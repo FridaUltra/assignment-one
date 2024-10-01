@@ -1,9 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import DetailsScreen from '../screens/DetailsScreen';
-import HomeScreen from '../screens/HomeScreen';
+import TabNavigator from './TabNavigator';
 
 export type RootStackParamList = {
-	Home: undefined;
+	HomeNavigator: undefined;
 	Details: undefined;
 };
 
@@ -13,12 +12,9 @@ export default function RootStackNavigator() {
 	return (
 		<RootStack.Navigator>
 			<RootStack.Screen
-				name="Home"
-				component={HomeScreen}
-			/>
-			<RootStack.Screen
-				name="Details"
-				component={DetailsScreen}
+				name="HomeNavigator"
+				component={TabNavigator}
+				options={{ headerShown: false }}
 			/>
 		</RootStack.Navigator>
 	);
