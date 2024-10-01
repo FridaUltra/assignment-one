@@ -1,32 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
-import {
-	createNativeStackNavigator,
-	NativeStackScreenProps,
-} from '@react-navigation/native-stack';
-import { Button, Text, View } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import DetailsScreen from './screens/DetailsScreen';
+import HomeScreen from './screens/HomeScreen';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
-
-function HomeScreen({ navigation }: Props) {
-	return (
-		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-			<Text>Home Screen</Text>
-			<Button
-				title="Klicka här för detaljer"
-				onPress={() => navigation.navigate('Details')}
-			/>
-		</View>
-	);
-}
-function DetailsScreen() {
-	return (
-		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-			<Text>Details Screen</Text>
-		</View>
-	);
-}
-
-type RootStackParamList = {
+export type RootStackParamList = {
 	Home: undefined;
 	Details: undefined;
 };
