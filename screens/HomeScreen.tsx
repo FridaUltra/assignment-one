@@ -1,8 +1,8 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { BottomTabScreenProps } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { Button, Text, View } from 'react-native';
-import { RootStackParamList } from '../navigators/RootStackNavigator';
+import { TabParamList } from '../navigators/TabNavigator';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type Props = BottomTabScreenProps<TabParamList, 'Home'>;
 
 export default function HomeScreen({ navigation }: Props) {
 	return (
