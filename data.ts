@@ -1,30 +1,30 @@
 export interface Weather {
-	lat: number;
-	lon: number;
-	timezone: string;
-	timezone_offset: number;
+	location: {
+		name: string;
+		region: string;
+		country: string;
+		lat: number;
+		lon: number;
+		tz_id: string;
+		localtime_epoch: number;
+		localtime: string;
+	};
 	current: {
-		dt: number;
-		sunrise: number;
-		sunset: number;
-		temp: number;
-		feels_like: number;
-		pressure: number;
-		humidity: number;
-		dew_point: number;
-		uvi: number;
-		clouds: number;
-		visibility: number;
-		wind_speed: number;
-		wind_deg: number;
-		wind_gust: number;
-		weather: [
-			{
-				id: number;
-				main: string;
-				description: string;
-				icon: string;
-			}
-		];
+		last_updated_epoch: number;
+		last_updated: string;
+		temp_c: number;
+		is_day: number;
+		condition: {
+			text: string;
+			icon: string;
+			code: number;
+		};
+		wind_kph: number;
+		wind_degree: number;
+		wind_dir: string;
+		cloud: number;
+		feelslike_c: number;
+		feelslike_f: number;
+		vis_km: number;
 	};
 }
