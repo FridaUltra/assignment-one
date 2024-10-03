@@ -6,7 +6,7 @@ interface Props {
 	onPress: () => void;
 	icon: any;
 	title: string;
-	value: string;
+	value: number;
 	unit?: string;
 }
 export default function Box({ onPress, icon, title, value, unit }: Props) {

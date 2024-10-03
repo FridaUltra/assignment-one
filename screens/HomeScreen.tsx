@@ -7,6 +7,17 @@ import { TabParamList } from '../navigators/TabNavigator';
 type Props = BottomTabScreenProps<TabParamList, 'Home'>;
 
 export default function HomeScreen({ navigation }: Props) {
+	const feelLikeTemp = 10;
+	const temp = 12;
+	let tempIcon = 'temperature-low';
+
+	if (feelLikeTemp > temp) {
+		tempIcon = 'temperature-arrow-up';
+	}
+	if (feelLikeTemp < temp) {
+		tempIcon = 'temperature-arrow-down';
+	}
+
 	return (
 		<View style={[s.rootContainer, { backgroundColor: '#f28482' }]}>
 			<View
@@ -43,20 +54,20 @@ export default function HomeScreen({ navigation }: Props) {
 						<Box
 							title="Steg idag"
 							icon="person-walking-arrow-right"
-							value="100"
+							value={100}
 							onPress={() => navigation.navigate('Details')}
 						/>
 						<Box
 							title="Temperatur"
 							icon="temperature-low"
-							value="10"
+							value={temp}
 							unit="℃"
 							onPress={() => navigation.navigate('Details')}
 						/>
 						<Box
 							title="Känns som"
-							icon="temperature-low"
-							value="10"
+							icon={tempIcon}
+							value={feelLikeTemp}
 							unit="℃"
 							onPress={() => navigation.navigate('Details')}
 						/>
