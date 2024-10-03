@@ -1,5 +1,6 @@
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
-import { Button, ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Box from '../components/Box';
 import { TabParamList } from '../navigators/TabNavigator';
 
@@ -7,7 +8,22 @@ type Props = BottomTabScreenProps<TabParamList, 'Home'>;
 
 export default function HomeScreen({ navigation }: Props) {
 	return (
-		<View style={[s.rootcontainer, { backgroundColor: '#f28482' }]}>
+		<View style={[s.rootContainer, { backgroundColor: '#f28482' }]}>
+			<View
+				style={{
+					flex: 1,
+					justifyContent: 'center',
+					alignItems: 'center',
+					flexDirection: 'row',
+					gap: 16,
+				}}>
+				<FontAwesome6
+					name="location-dot"
+					size={24}
+					color="black"
+				/>
+				<Text style={{ fontSize: 38 }}>Location</Text>
+			</View>
 			<View
 				style={{
 					paddingTop: 48,
@@ -24,23 +40,24 @@ export default function HomeScreen({ navigation }: Props) {
 							gap: 30,
 							paddingHorizontal: 25,
 						}}>
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-						<Box onPress={() => navigation.navigate('Details')} />
-
-						<Button
-							title="Klicka här för detaljer"
+						<Box
+							title="Steg idag"
+							icon="person-walking-arrow-right"
+							value="100"
+							onPress={() => navigation.navigate('Details')}
+						/>
+						<Box
+							title="Temperatur"
+							icon="temperature-low"
+							value="10"
+							unit="℃"
+							onPress={() => navigation.navigate('Details')}
+						/>
+						<Box
+							title="Känns som"
+							icon="temperature-low"
+							value="10"
+							unit="℃"
 							onPress={() => navigation.navigate('Details')}
 						/>
 					</View>
@@ -51,13 +68,8 @@ export default function HomeScreen({ navigation }: Props) {
 }
 
 const s = StyleSheet.create({
-	rootcontainer: {
+	rootContainer: {
 		flex: 1,
 		justifyContent: 'flex-end',
-		// alignItems: 'center',
-	},
-	iconLabel: {
-		color: '#fff',
-		marginTop: 12,
 	},
 });
