@@ -1,3 +1,4 @@
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import * as Location from 'expo-location';
 import { LocationObject } from 'expo-location';
 import { useEffect, useState } from 'react';
@@ -63,11 +64,23 @@ export default function WeatherScreen() {
 	return (
 		<>
 			<View style={s.container}>
-				<Text style={s.title}>{locationName} - Väderdata</Text>
+				<View style={{ flexDirection: 'row', gap: 16 }}>
+					<FontAwesome6
+						name="location-dot"
+						size={24}
+						color="black"
+					/>
+					<Text style={s.title}>{locationName} - Väderdata</Text>
+				</View>
 
 				<LineChart
 					data={{
-						labels: ['Temp (°C)', 'Feels Like (°C)', 'Wind (m/s)', 'Cloud (%)'],
+						labels: [
+							'Temp (°C)',
+							'Känns som (°C)',
+							'Vind (m/s)',
+							'Molnighet (%)',
+						],
 						datasets: [
 							{
 								data: [temp, feelsLikeTemp, windSpeed_mps, cloudiness],
@@ -75,14 +88,14 @@ export default function WeatherScreen() {
 						],
 					}}
 					width={Dimensions.get('window').width - 20} // bredden på diagrammet
-					height={400} // höjden på diagrammet
+					height={350} // höjden på diagrammet
 					chartConfig={{
-						backgroundColor: '#e26a00',
-						backgroundGradientFrom: '#fb8c00',
-						backgroundGradientTo: '#ffa726',
+						backgroundColor: '#e76f51',
+						backgroundGradientFrom: '#e29578',
+						backgroundGradientTo: '#e29578',
 						decimalPlaces: 0, // Antal decimaler
-						color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-						labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+						color: (opacity = 1) => `rgba(051, 042, 041, ${opacity})`,
+						labelColor: (opacity = 1) => `rgba(051, 042, 041, ${opacity})`,
 						style: {
 							borderRadius: 16,
 						},
@@ -108,13 +121,14 @@ const s = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
+		backgroundColor: '#ffddd2',
 	},
 	paragraph: {
 		fontSize: 18,
 		textAlign: 'center',
 	},
 	title: {
-		fontSize: 20,
+		fontSize: 24,
 		fontWeight: 'bold',
 		textAlign: 'center',
 		marginBottom: 10,
