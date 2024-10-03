@@ -21,20 +21,25 @@ export default function WeatherScreen() {
 
 			let location = await Location.getCurrentPositionAsync({});
 			setLocation(location);
+			console.log(
+				`location: lat ${location.coords.latitude}, lon ${location.coords.longitude}`
+			);
 		})();
 	}, []);
 
 	useEffect(() => {
 		async function fetcher() {
-			const lat = location?.coords.latitude;
-			const lon = location?.coords.longitude;
+			const lat = location!.coords.latitude;
+			const lon = location!.coords.longitude;
 			const lang = 'sv';
 			const url = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${lat},${lon}&lang=${lang}`;
 
 			const response = await fetch(url);
-			const data = await response.json();
+			const data: Weather = await response.json();
 			console.log(data);
-			// todo: Sätt vädret när API:t fungerar
+			setWeather(data);
+			console.log(`Land: ${weather!.location.country}`);
+			console.log(`namn: ${weather!.location.name}`);
 		}
 		fetcher();
 	}, [location]);
@@ -48,7 +53,9 @@ export default function WeatherScreen() {
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.paragraph}>{text}</Text>
+			<Text style={styles.paragraph}>
+				{weather ? JSON.stringify(weather) : 'Laddar in..'}
+			</Text>
 		</View>
 	);
 }

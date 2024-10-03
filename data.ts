@@ -24,7 +24,6 @@ export interface Weather {
 		wind_dir: string;
 		cloud: number;
 		feelslike_c: number;
-		feelslike_f: number;
 		vis_km: number;
 	};
 }
