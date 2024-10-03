@@ -1,3 +1,4 @@
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import DetailsScreen from '../screens/DetailsScreen';
@@ -44,6 +45,15 @@ export default function TabNavigator() {
 			<Tab.Screen
 				name="Weather"
 				component={WeatherScreen}
+				options={{
+					tabBarIcon: ({ color, size }) => (
+						<FontAwesome5
+							name="cloud-sun"
+							size={size}
+							color={color}
+						/>
+					),
+				}}
 			/>
 		</Tab.Navigator>
 	);
