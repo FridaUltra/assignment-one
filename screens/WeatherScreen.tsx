@@ -51,16 +51,22 @@ export default function WeatherScreen() {
 		text = JSON.stringify(location);
 	}
 
+	const locationName = weather?.location.name;
+	const temp = weather?.current.temp_c;
+	const feelsLikeTemp = weather?.current.feelslike_c;
+	const windSpeed_mps = weather!.current.wind_kph / 3.6;
+	const cloudiness = weather?.current.cloud;
+	const weatherIconUrl = weather?.current.condition.icon;
+	const weatherDescription = weather?.current.condition.text;
+
 	return (
-		<View style={styles.container}>
-			<Text style={styles.paragraph}>
-				{weather ? JSON.stringify(weather) : 'Laddar in..'}
-			</Text>
+		<View style={s.container}>
+			<Text>{weather ? `Molnighet: ${cloudiness} %` : 'Laddar in..'}</Text>
 		</View>
 	);
 }
 
-const styles = StyleSheet.create({
+const s = StyleSheet.create({
 	container: {
 		flex: 1,
 		alignItems: 'center',
