@@ -1,3 +1,4 @@
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import DetailsScreen from '../screens/DetailsScreen';
 import HomeScreen from '../screens/HomeScreen';
@@ -15,10 +16,28 @@ export default function TabNavigator() {
 			<Tab.Screen
 				name="Home"
 				component={HomeScreen}
+				options={{
+					tabBarIcon: ({ color, size }) => (
+						<MaterialIcons
+							name="home"
+							size={size}
+							color={color}
+						/>
+					),
+				}}
 			/>
 			<Tab.Screen
 				name="Details"
 				component={DetailsScreen}
+				options={{
+					tabBarIcon: ({ color, size }) => (
+						<MaterialIcons
+							name="details"
+							size={size}
+							color={color}
+						/>
+					),
+				}}
 			/>
 		</Tab.Navigator>
 	);
