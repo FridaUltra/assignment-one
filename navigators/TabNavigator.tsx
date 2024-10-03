@@ -2,10 +2,12 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import DetailsScreen from '../screens/DetailsScreen';
 import HomeScreen from '../screens/HomeScreen';
+import WeatherScreen from '../screens/WeatherScreen';
 
 export type TabParamList = {
 	Home: undefined;
 	Details: undefined;
+	Weather: undefined;
 };
 
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -38,6 +40,10 @@ export default function TabNavigator() {
 						/>
 					),
 				}}
+			/>
+			<Tab.Screen
+				name="Weather"
+				component={WeatherScreen}
 			/>
 		</Tab.Navigator>
 	);
