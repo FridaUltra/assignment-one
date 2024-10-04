@@ -108,11 +108,7 @@ export default function HomeScreen({ navigation }: Props) {
 					</View>
 					<View
 						style={{
-							// paddingTop: 48,
-							// backgroundColor: '#f5cac3',
 							height: 400,
-							// borderTopLeftRadius: 30,
-							// borderTopRightRadius: 30,
 						}}>
 						<ScrollView>
 							<View
@@ -127,12 +123,6 @@ export default function HomeScreen({ navigation }: Props) {
 									icon="battery-half"
 									value={batteryLevel}
 									unit="%"
-								/>
-								<Box
-									title="Steg idag"
-									icon="person-walking-arrow-right"
-									value={100}
-									onPress={() => navigation.navigate('Weather')}
 								/>
 								<Box
 									title="Temperatur"
