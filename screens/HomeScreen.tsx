@@ -88,7 +88,7 @@ export default function HomeScreen({ navigation }: Props) {
 				<View style={[s.rootContainer, { backgroundColor: '#f28482' }]}>
 					<LinearGradient
 						// Background Linear Gradient
-						colors={['#4c669f', '#3b5998', '#192f6a']}
+						colors={['#854B49', '#A15A58', '#192f6a']}
 						style={s.background}
 					/>
 					<View
@@ -108,11 +108,11 @@ export default function HomeScreen({ navigation }: Props) {
 					</View>
 					<View
 						style={{
-							paddingTop: 48,
-							backgroundColor: '#f5cac3',
+							// paddingTop: 48,
+							// backgroundColor: '#f5cac3',
 							height: 400,
-							borderTopLeftRadius: 30,
-							borderTopRightRadius: 30,
+							// borderTopLeftRadius: 30,
+							// borderTopRightRadius: 30,
 						}}>
 						<ScrollView>
 							<View
@@ -127,7 +127,6 @@ export default function HomeScreen({ navigation }: Props) {
 									icon="battery-half"
 									value={batteryLevel}
 									unit="%"
-									onPress={() => navigation.navigate('Details')}
 								/>
 								<Box
 									title="Steg idag"
@@ -189,6 +188,6 @@ const s = StyleSheet.create({
 		left: 0,
 		right: 0,
 		top: 0,
-		height: 300,
+		height: '100%',
 	},
 });

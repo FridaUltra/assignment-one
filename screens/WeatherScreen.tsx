@@ -55,10 +55,10 @@ export default function WeatherScreen() {
 	const weatherDescription = weather?.current.condition.text ?? 'Unknown text';
 
 	const getGradientColors = () => {
-		if (!weather) return ['#4c669f', '#3b5998', '#192f6a'];
+		if (!weather) return ['#854B49', '#A15A58', '#192f6a', '#854B49'];
 
 		// Choose colors base on weather conditons.
-		if (weather.current.is_day) return ['#4c669f', '#3b5998', '#192f6a'];
+		if (!weather.current.is_day) return ['#854B49', '#192f6a'];
 		const weatherCondition = weather.current.condition.code;
 
 		switch (weatherCondition) {
@@ -73,7 +73,7 @@ export default function WeatherScreen() {
 			case 1276:
 				return ['#20002c', '#cbb4d4']; // thunder
 			default:
-				return ['#4c669f', '#3b5998', '#192f6a']; // standard
+				return ['#854B49', '#A15A58', '#192f6a']; // standard
 		}
 	};
 
@@ -141,8 +141,8 @@ export default function WeatherScreen() {
 					height={350}
 					chartConfig={{
 						backgroundColor: '#e76f51',
-						backgroundGradientFrom: backgroundGradient[1],
-						backgroundGradientTo: backgroundGradient[0],
+						backgroundGradientFrom: backgroundGradient[0],
+						backgroundGradientTo: backgroundGradient[1],
 						decimalPlaces: 0,
 						color: (opacity = 1) => `rgba(246, 253, 255, ${opacity})`,
 						labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,

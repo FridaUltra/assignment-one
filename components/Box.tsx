@@ -3,7 +3,7 @@ import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 interface Props {
-	onPress: () => void;
+	onPress?: () => void;
 	icon: any;
 	title: string;
 	value: number;
