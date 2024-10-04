@@ -1,7 +1,6 @@
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import DetailsScreen from '../screens/DetailsScreen';
 import HomeScreen from '../screens/HomeScreen';
 import WeatherScreen from '../screens/WeatherScreen';
 
@@ -23,19 +22,6 @@ export default function TabNavigator() {
 					tabBarIcon: ({ color, size }) => (
 						<MaterialIcons
 							name="home"
-							size={size}
-							color={color}
-						/>
-					),
-				}}
-			/>
-			<Tab.Screen
-				name="Details"
-				component={DetailsScreen}
-				options={{
-					tabBarIcon: ({ color, size }) => (
-						<MaterialIcons
-							name="details"
 							size={size}
 							color={color}
 						/>
