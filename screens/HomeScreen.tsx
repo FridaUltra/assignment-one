@@ -1,6 +1,7 @@
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { useBatteryLevel } from 'expo-battery';
+import { LinearGradient } from 'expo-linear-gradient';
 import * as Location from 'expo-location';
 import { LocationObject } from 'expo-location';
 import { useEffect, useState } from 'react';
@@ -85,6 +86,11 @@ export default function HomeScreen({ navigation }: Props) {
 			)}
 			{weather && (
 				<View style={[s.rootContainer, { backgroundColor: '#f28482' }]}>
+					<LinearGradient
+						// Background Linear Gradient
+						colors={['#4c669f', '#3b5998', '#192f6a']}
+						style={s.background}
+					/>
 					<View
 						style={{
 							flex: 1,
@@ -177,5 +183,12 @@ const s = StyleSheet.create({
 	rootContainer: {
 		flex: 1,
 		justifyContent: 'flex-end',
+	},
+	background: {
+		position: 'absolute',
+		left: 0,
+		right: 0,
+		top: 0,
+		height: 300,
 	},
 });
