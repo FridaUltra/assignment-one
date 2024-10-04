@@ -6,9 +6,8 @@ import { LocationObject } from 'expo-location';
 import React, { useEffect, useState } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
+import API_KEY from '../apiKeys';
 import { Weather } from '../data';
-
-const API_KEY = 'a3b13214b49043318a485725240210';
 
 export default function WeatherScreen() {
 	const [location, setLocation] = useState<LocationObject>();

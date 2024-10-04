@@ -12,11 +12,10 @@ import {
 	Text,
 	View,
 } from 'react-native';
+import API_KEY from '../apiKeys';
 import Box from '../components/Box';
 import { Weather } from '../data';
 import { TabParamList } from '../navigators/TabNavigator';
-
-const API_KEY = 'a3b13214b49043318a485725240210';
 
 type Props = BottomTabScreenProps<TabParamList, 'Home'>;
 
