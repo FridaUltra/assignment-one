@@ -1,11 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native';
+import WeatherProvider from './context/WeatherProvider';
 import RootStackNavigator from './navigators/RootStackNavigator';
 
 function App() {
 	return (
-		<NavigationContainer>
-			<RootStackNavigator />
-		</NavigationContainer>
+		<WeatherProvider>
+			<NavigationContainer>
+				<RootStackNavigator />
+			</NavigationContainer>
+		</WeatherProvider>
 	);
 }
 
