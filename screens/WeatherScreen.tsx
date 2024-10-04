@@ -59,15 +59,16 @@ export default function WeatherScreen() {
 
 		// Choose colors base on weather conditons.
 		if (!weather.current.is_day) return ['#854B49', '#192f6a'];
+
 		const weatherCondition = weather.current.condition.code;
 
 		switch (weatherCondition) {
 			case 1000:
-				return ['#FFD700', '#FF8C00']; // sunny
+				return ['#F6D365', '#FDA085']; // sunny
 			case 1006:
 				return ['#D3D3D3', '#A9A9A9']; // cloudy
 			case 1240:
-				return ['#000046', '#1CB5E0']; // rainy
+				return ['#1CB5E0', '#000046']; // rainy
 			case 1225:
 				return ['#E0EAF6', '#A1C4FD']; // snowy
 			case 1276:
